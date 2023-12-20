@@ -19,15 +19,16 @@ mongoose.connect(process.env.MONGODB_URI, {
   useUnifiedTopology: true,
 });
 
+app.get('/',(req,res)=>{
+    res.status(200).send("Welcome to urlshort API ")
+})
+
 // .........Use routes.............//
  app.use('/auth', authRoutes);
  app.use('/url', urlRoutes);
 
 
-app.use((res,req)=>{
-    req.url=("/home")
-    res.setEncoding("welcom to urlshor app")
-})
+
 
 //.............Start the server...............//
 app.listen(PORT, () => {
